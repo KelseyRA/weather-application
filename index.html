@@ -16,69 +16,80 @@
 <body class="container">
     <h1> Weather Across the Country</h1>
     <form class="header search-items">
-        <input id="input" type="text" placeholder="Search" />
+        <input id="city-input" name="location" type="text" placeholder="Search" />
         <button id="submit-btn" placeholder="Submit">Submit</button>
     </form>
 
     <div class="card text-center">
         <div class="card-header">
-            Most Recent Results
+            Current Weather
         </div>
         <div class="card-body">
-            <h5 class="card-title">Weather Results</h5>
-            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <h5 class="card-title city-name"></h5>
+            <p class="card-text">Min Temp:</p>
+            <p class="card-text">Max Temp:</p>
         </div>
         <div class="card-footer text-muted">
-            <!-- 2 days ago -->
         </div>
     </div>
 
-    <div class="row">
-        <div class="col-sm-6 mb-3 mb-sm-0">
-            <div class="card five-day">
+
+    <div class="row row-cols-1 row-cols-md-3 g-4">
+        <div class="col text-center">
+            <div class="card h-100 five-day">
                 <div class="card-body">
-                    <h5 class="card-title">Five Day Forecast</h5>
-                    <p class="card-text">Weather Information.</p>
+                    <h5 class="card-title date">Date</h5>
+                    <p class="card-text min">Min Temp:</p>
+                    <p class="card-text max">Max Temp:</p>
                 </div>
             </div>
         </div>
-        <div class="col-sm-6">
-            <div class="card five-day">
+        <div class="col text-center">
+            <div class="card h-100 five-day">
                 <div class="card-body">
-                    <h5 class="card-title">City Name</h5>
-                    <p class="card-text">Weather Information.</p>
+                    <h5 class="card-title">Date</h5>
+                    <p class="card-text min">Min Temp:</p>
+                    <p class="card-text max">Max Temp:</p>
+                </div>
+            </div>
+        </div>
+        <div class="col text-center">
+            <div class="card h-100 five-day">
+                <div class="card-body">
+                    <h5 class="card-title">Date</h5>
+                    <p class="card-text min">Min Temp:</p>
+                    <p class="card-text max">Max Temp:</p>
+                </div>
+            </div>
+        </div>
+        <div class="col text-center">
+            <div class="card h-100 five-day">
+                <div class="card-body">
+                    <h5 class="card-title">Date</h5>
+                    <p class="card-text min">Min Temp:</p>
+                    <p class="card-text max">Max Temp:</p>
+                </div>
+            </div>
+        </div>
+        <div class="col text-center">
+            <div class="card h-100 five-day">
+                <div class="card-body">
+                    <h5 class="card-title">Date</h5>
+                    <p class="card-text min">Min Temp:</p>
+                    <p class="card-text max">Max Temp:</p>
                 </div>
             </div>
         </div>
     </div>
-    <div class="row">
-        <div class="col-sm-6 mb-3 mb-sm-0">
-            <div class="card five-day">
-                <div class="card-body">
-                    <h5 class="card-title">Five Day Forecast</h5>
-                    <p class="card-text">Weather Information.</p>
-                </div>
-            </div>
-        </div>
-        <div class="col-sm-6">
-            <div class="card five-day">
-                <div class="card-body">
-                    <h5 class="card-title">City Name</h5>
-                    <p class="card-text">Weather Information.</p>
-                </div>
-            </div>
-        </div>
-    </div>
-    <div class="card text-center">
+    <div class="card text-center m-3 history">
         <div class="card-header">
             History
         </div>
         <div class="card-body">
-            <h5 class="card-title">Cities</h5>
-            <p class="card-text">List of recently searched cities.</p>
+            <h5 class="card-title">Searched Cities</h5>
+            <p class="card-text li-history"></p>
         </div>
         <div class="card-footer text-muted">
-            <!-- 2 days ago -->
         </div>
     </div>
 

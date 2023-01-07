@@ -21,10 +21,15 @@ h1 {
 }
 
 .five-day {
-    margin: 1rem;
-    display: none;
+    
+    margin: 4rem;
+    /* display: none; */
 }
 
 .card {
-    margin: 1rem;
+    margin: 2rem;
+}
+
+.history {
+   margin: 4px;
 }
