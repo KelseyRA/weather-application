@@ -21,22 +21,27 @@
     </form>
 
     <div class="card text-center">
-        <div class="card-header">
+        <div class="card-header current-weather">
             Current Weather
         </div>
         <div class="card-body">
             <h5 class="card-title city-name"></h5>
-            <p class="card-text">Min Temp:</p>
-            <p class="card-text">Max Temp:</p>
+            <p class="card-text temp"></p>
+            <p class="card-text humidity"></p>
+            <p class="car-text wind"></p>
+            <p class="icon"></p>
+            <!-- <p class="card-text min-temp"></p>
+            <p class="card-text max-temp"></p> -->
         </div>
         <div class="card-footer text-muted">
+            <p class="card-text description"></p>
         </div>
     </div>
 
 
     <div class="row row-cols-1 row-cols-md-3 g-4">
         <div class="col text-center">
-            <div class="card h-100 five-day">
+            <div class="card h-100 five-day hidden">
                 <div class="card-body">
                     <h5 class="card-title date">Date</h5>
                     <p class="card-text min">Min Temp:</p>
@@ -45,7 +50,7 @@
             </div>
         </div>
         <div class="col text-center">
-            <div class="card h-100 five-day">
+            <div class="card h-100 five-day hidden">
                 <div class="card-body">
                     <h5 class="card-title">Date</h5>
                     <p class="card-text min">Min Temp:</p>
@@ -54,7 +59,7 @@
             </div>
         </div>
         <div class="col text-center">
-            <div class="card h-100 five-day">
+            <div class="card h-100 five-day hidden">
                 <div class="card-body">
                     <h5 class="card-title">Date</h5>
                     <p class="card-text min">Min Temp:</p>
@@ -63,7 +68,7 @@
             </div>
         </div>
         <div class="col text-center">
-            <div class="card h-100 five-day">
+            <div class="card h-100 five-day hidden">
                 <div class="card-body">
                     <h5 class="card-title">Date</h5>
                     <p class="card-text min">Min Temp:</p>
@@ -72,7 +77,7 @@
             </div>
         </div>
         <div class="col text-center">
-            <div class="card h-100 five-day">
+            <div class="card h-100 five-day hidden">
                 <div class="card-body">
                     <h5 class="card-title">Date</h5>
                     <p class="card-text min">Min Temp:</p>
@@ -81,18 +86,20 @@
             </div>
         </div>
     </div>
-    <div class="card text-center m-3 history">
+    <div class="card text-center m-6 history">
         <div class="card-header">
             History
         </div>
         <div class="card-body">
             <h5 class="card-title">Searched Cities</h5>
-            <p class="card-text li-history"></p>
+            <p class="card-text ul-history"></p>
         </div>
         <div class="card-footer text-muted">
         </div>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/dayjs@1.11.3/dayjs.min.js"
+        integrity="sha256-iu/zLUB+QgISXBLCW/mcDi/rnf4m4uEDO0wauy76x7U=" crossorigin="anonymous"></script>
     <script src="./assets/script.js"></script>
 </body>
 
