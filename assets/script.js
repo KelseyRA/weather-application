@@ -58,7 +58,7 @@ function renderSearchHistory() {
 // Function calls the API information and displays it in the console.
 function getApi(location) {
 
- var queryURL = "http://api.openweathermap.org/data/2.5/weather?q=" + location + "&appid=" + apiKey +  "&units=imperial";
+ var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + location + "&appid=" + apiKey +  "&units=imperial";
     
     fetch(queryURL)
         .then(function (response) {
@@ -107,7 +107,7 @@ function getApi(location) {
 
 function fiveDay(location) {
 
-    var fiveDayQ = 'http://api.openweathermap.org/data/2.5/forecast?q=' + location + "&units=Imperial&cnt=40&APPID=" + fiveApiKey;
+    var fiveDayQ = 'https://api.openweathermap.org/data/2.5/forecast?q=' + location + "&units=Imperial&cnt=40&APPID=" + fiveApiKey;
 
 
     fetch(fiveDayQ)
