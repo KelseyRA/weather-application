@@ -3,6 +3,7 @@ body {
     background-image: url(./wolfgang-hasselmann-bR_-gllg7Bs-unsplash.jpg);
     background-size: 100rem 100rem 100rem 100rem;
     background-position: center;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
 
   }
 
@@ -22,6 +23,10 @@ h1 {
 
 .card-header {
     background-color: lightblue;
+}
+
+.card-body {
+    background-color: lightgray;
 }
 
 .five-day {

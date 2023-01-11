@@ -8,7 +8,7 @@ var cityName = document.querySelector(".card-title");
 var weatherData = document.querySelector(".card-text");
 var weatherHistory = document.querySelector(".ul-history");
 
-const location = cityInput.value;
+
 
 weatherHistory.innerHTML = localStorage.getItem('searchHistory');
 
@@ -17,10 +17,11 @@ weatherHistory.innerHTML = localStorage.getItem('searchHistory');
 function formSubmitHandler(event) {
     event.preventDefault();
     
+    const location = cityInput.value;
 
     if (location) {
         getApi(location);
-
+        fiveDay(location);
         cityInput.textContent = '';
 
     }
@@ -28,6 +29,7 @@ function formSubmitHandler(event) {
     renderSearchHistory();
     renderCurrentWeather();
     currentDay();
+    
 }
 
 function renderCurrentWeather() {
@@ -74,8 +76,8 @@ function getApi(location) {
             var humidity = data.main.humidity;
             var wind = data.wind.speed;
 
-            var locationIcon = document.querySelector('.icon');
-            // var iconUrl = `https://openweathermap.org/img/w/${weather.weather[0].icon}.png`;
+            // var locationIcon = document.querySelector('.icon');
+            
 
 
             console.log(Math.floor(temp)); 
@@ -88,8 +90,12 @@ function getApi(location) {
             document.querySelector('.description').textContent= "Cloud Coverage: " + description;
             document.querySelector('.humidity').textContent= "Humidity: " + humidity + " %";
             document.querySelector('.wind').textContent= "Wind: " + wind + " MPH";
-            document.querySelector('.icon').textContent= icon;
-            locationIcon.innerHTML = "<img src='https://openweathermap.org/img/w/" + icon + '.png';
+            
+
+            const iconImage = document.createElement("img");
+            iconImage.src = "https://openweathermap.org/img/w/" + icon + ".png";
+            document.querySelector(".icon").appendChild(iconImage);
+           
         })
 
         
@@ -99,27 +105,44 @@ function getApi(location) {
 
 // Function displays the 5-day forecast below the most recent weather information.
 
-// function fiveDay(location) {
+function fiveDay(location) {
 
-//     var days = 5;
-//     var fiveDayQ = 'http://api.openweathermap.org/data/2.5/forecast?q=' + location + "&units=Imperial" + "&cnt=" + days + "&APPID=" + fiveApiKey;
-//     ;
+    var fiveDayQ = 'http://api.openweathermap.org/data/2.5/forecast?q=' + location + "&units=Imperial&cnt=40&APPID=" + fiveApiKey;
 
-//     fetch(fiveDayQ)
-//         .then(function (response) {
-//             data=response.json();
-//             return data;
-//        })
-//         .then(function (data) {
-//             console.log(data)
 
-//             for (var i = 0; i < data.list.length; i++) {
-//                 console.log(data.list[i].humidity)
-//             }
-//         })
-// }
+    fetch(fiveDayQ)
+        .then(function (response) {
+            data=response.json();
+            return data;
+       })
+        .then(function (data) {
+            console.log(data)
+           
+            // var tempOne = data.list[8].main.temp;
+            // // var descriptionOne = data.list[8].weather[0].description;
+            // var iconOne = data.list[8].weather[0].icon;
+            // var humidityOne = data.list[8].main.humidity;
+            // var windOne = data.list[8].wind.speed;
 
-// fiveDay();
+            // const hidden = document.getElementsByClassName('.five-day');
+
+            
+
+            // document.querySelector('.tempOne').textContent= "Temp: " + (Math.floor(tempOne)) + " °F";
+            // // document.querySelector('.description').textContent= "Cloud Coverage: " + descriptionOne;
+            // document.querySelector('.humidityOne').textContent= "Humidity: " + humidityOne + " %";
+            // document.querySelector('.windOne').textContent= "Wind: " + windOne + " MPH";
+            // document.querySelector('.iconOne').textContent= iconOne;
+
+            // hidden.classList.remove('.hidden');
+
+            // for (var i = 0; i < data.list.length; i++) {
+            //     console.log(data.list[i].dt_txt);
+            // }
+        })
+}
+
+
 
 // Function retains the history of the search at the bottom of the page.
 
