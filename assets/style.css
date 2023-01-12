@@ -1,17 +1,21 @@
 body {
     font-size: 16px;
-    background-image: url(./wolfgang-hasselmann-bR_-gllg7Bs-unsplash.jpg);
+    background-image: url(./Images/wolfgang-hasselmann-bR_-gllg7Bs-unsplash.jpg);
     background-size: 100rem 100rem 100rem 100rem;
     background-position: center;
     font-family: Verdana, Geneva, Tahoma, sans-serif;
 
   }
 
+  /* Title styling */
+
 h1 {
     text-align: center;
     margin: 1rem;
     padding-top: 2rem;
 }
+
+/* Search and button format */
 
 .header {
     margin: 2rem;
@@ -21,6 +25,8 @@ h1 {
     justify-content: center;
 }
 
+/* Current weather card formatting/styles */
+
 .card-header {
     background-color: lightblue;
 }
@@ -28,6 +34,8 @@ h1 {
 .card-body {
     background-color: lightgray;
 }
+
+/* Format and spacing for 5-day forecast, items rendered via JS */
 
 .five-day {
     margin: 4rem;
@@ -37,10 +45,8 @@ h1 {
     margin: 2rem;
 }
 
+/* History card format */
+
 .history {
    margin: 4rem;
-}
-
-.hidden {
-    display: none;
 }

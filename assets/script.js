@@ -8,11 +8,11 @@ var cityName = document.querySelector(".card-title");
 var weatherData = document.querySelector(".card-text");
 var weatherHistory = document.querySelector(".ul-history");
 
-
+// Renders the search history when page is loaded
 
 weatherHistory.innerHTML = localStorage.getItem('searchHistory');
 
-// When the submit button is clicked the API is called
+// When the submit button is clicked the API is called, current date is rendered, city name is rendered.
 
 function formSubmitHandler(event) {
     event.preventDefault();
@@ -32,30 +32,34 @@ function formSubmitHandler(event) {
     
 }
 
+// Renders the searched city name in the current weather card.
+
 function renderCurrentWeather() {
     cityName.textContent = cityInput.value;
     
 }
 
+// Generates the current date at the top of the page
+
 function currentDay() {
     var date = dayjs().format('MM/DD/YYYY');
-    
-    console.log(date);
 
     document.querySelector('.current-weather').textContent= "Current Weather - " + date;
 
 
 }
 
+// Sets the local storage and displays it at the bottom of the page
+
 function renderSearchHistory() {
-
+    
+    
     localStorage.setItem("searchHistory" , cityInput.value)
-
-    weatherHistory.innerHTML = localStorage.getItem('searchHistory');
+    weatherHistory.textContent = localStorage.getItem('searchHistory');
 
 }
 
-// Function calls the API information and displays it in the console.
+// Function calls the current weather and displays it at the top of the page.
 function getApi(location) {
 
  var queryURL = "https://api.openweathermap.org/data/2.5/weather?q=" + location + "&appid=" + apiKey +  "&units=imperial";
@@ -68,17 +72,13 @@ function getApi(location) {
         .then(function (data) {
             console.log(data)
 
- //Displays the searched city's most recent weather information at the top of the page.
            
             var temp = data.main.temp;
             var description = data.weather[0].description;
             var icon = data.weather[0].icon;
             var humidity = data.main.humidity;
             var wind = data.wind.speed;
-
-            // var locationIcon = document.querySelector('.icon');
-            
-
+        
 
             console.log(Math.floor(temp)); 
             console.log(description); 
@@ -94,12 +94,13 @@ function getApi(location) {
 
             const iconImage = document.createElement("img");
             iconImage.src = "https://openweathermap.org/img/w/" + icon + ".png";
-            document.querySelector(".icon").appendChild(iconImage);
+            var iconEl = document.querySelector(".icon");
+            iconEl.textContent = "";
+            iconEl.appendChild(iconImage);
+
+            
            
         })
-
-        
-
        
 }
 
@@ -118,34 +119,59 @@ function fiveDay(location) {
         .then(function (data) {
             console.log(data)
            
-            // var tempOne = data.list[8].main.temp;
-            // // var descriptionOne = data.list[8].weather[0].description;
-            // var iconOne = data.list[8].weather[0].icon;
-            // var humidityOne = data.list[8].main.humidity;
-            // var windOne = data.list[8].wind.speed;
 
-            // const hidden = document.getElementsByClassName('.five-day');
+            var dayOneEl = document.querySelector(".dayOne");
+            dayOneEl.textContent = "";
+           
 
-            
+            for (var i = 0; i < data.list.length; i= i+8) {
+                console.log(data.list[i].dt_txt);
 
-            // document.querySelector('.tempOne').textContent= "Temp: " + (Math.floor(tempOne)) + " °F";
-            // // document.querySelector('.description').textContent= "Cloud Coverage: " + descriptionOne;
-            // document.querySelector('.humidityOne').textContent= "Humidity: " + humidityOne + " %";
-            // document.querySelector('.windOne').textContent= "Wind: " + windOne + " MPH";
-            // document.querySelector('.iconOne').textContent= iconOne;
+                var card = document.createElement("div");
+                var cardOuterDiv = document.createElement("div");
+                var cardBody = document.createElement("div");
+                var dateEl =document.createElement("h5");
+                var tempOne =document.createElement("p");
+                var humidityOne =document.createElement("p");
+                var windOne =document.createElement("p");
+                var iconOne =document.createElement("p");
 
-            // hidden.classList.remove('.hidden');
+                card.setAttribute("class" , "col text-center");
+                cardOuterDiv.setAttribute("class" , "card h-100 five-day");
+                cardBody.setAttribute("class" , "card-body");
+                dateEl.setAttribute("class" , "card-title");
+                humidityOne.setAttribute("class" , "card-text");
+                windOne.setAttribute("class" , "card-text");
+                iconOne.setAttribute("class" , "card-text");
+                tempOne.setAttribute("class" , "card-text");
 
-            // for (var i = 0; i < data.list.length; i++) {
-            //     console.log(data.list[i].dt_txt);
-            // }
+                dateEl.textContent = data.list[i].dt_txt;
+                tempOne.textContent = "Temp: " + (Math.floor(data.list[i].main.temp)) + " °F";
+                humidityOne.textContent = "Humidity: " + data.list[i].main.humidity + " %";
+                windOne.textContent = "Wind: " + data.list[i].wind.speed + " MPH";
+                
+                const fiveImage = document.createElement("img");
+                fiveImage.src = "https://openweathermap.org/img/w/" + data.list[i].weather[0].icon + ".png";
+                var fiveEl = document.querySelector(".icon");
+                fiveEl.textContent = "";
+                fiveEl.appendChild(fiveImage);
+
+                
+                dayOneEl.appendChild(card);
+                card.appendChild(cardOuterDiv);
+                cardOuterDiv.appendChild(cardBody);
+                cardBody.appendChild(dateEl);
+                dateEl.append(tempOne);
+                tempOne.append(humidityOne);
+                humidityOne.append(windOne);
+                windOne.append(fiveImage);
+
+            }
         })
 }
 
-
-
-// Function retains the history of the search at the bottom of the page.
+// Weather information is called when the 'submit' button is clicked
 
 submitBtn.addEventListener('click' , formSubmitHandler);
 
-// Notes - Do I need to have the city save in local storage first and the have it display in history and current weather?
+

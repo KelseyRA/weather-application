@@ -10,12 +10,16 @@
     <title>Weather Application</title>
 </head>
 
+<!-- Header of application -->
+
 <body class="container">
-    <h1> Weather Across the Country</h1>
+    <h1> Weather Application</h1>
     <form class="header search-items">
         <input id="city-input" name="location" type="text" placeholder="Search" />
         <button id="submit-btn" placeholder="Submit">Submit</button>
     </form>
+
+    <!-- Current Weather is populated here -->
 
     <div class="card text-center">
         <div class="card-header current-weather">
@@ -27,8 +31,6 @@
             <p class="card-text humidity"></p>
             <p class="car-text wind"></p>
             <p class="icon"></p>
-            <!-- <p class="card-text min-temp"></p>
-            <p class="card-text max-temp"></p> -->
         </div>
         <div class="card-footer text-muted">
             <p class="card-text description"></p>
@@ -36,54 +38,10 @@
     </div>
 
 
-    <div class="row row-cols-1 row-cols-md-3 g-4">
-        <div class="col text-center">
-            <div class="card h-100 five-day hidden">
-                <div class="card-body">
-                    <h5 class="card-title date">Date</h5>
-                    <p class="card-text tempOne"></p>
-                    <p class="card-text humidityOne"></p>
-                    <p class="card-text windOne"></p>
-                    <p class="card-text iconOne"></p>
-                </div>
-            </div>
-        </div>
-        <div class="col text-center">
-            <div class="card h-100 five-day hidden">
-                <div class="card-body">
-                    <h5 class="card-title">Date</h5>
-                    <p class="card-text min">Min Temp:</p>
-                    <p class="card-text max">Max Temp:</p>
-                </div>
-            </div>
-        </div>
-        <div class="col text-center">
-            <div class="card h-100 five-day hidden">
-                <div class="card-body">
-                    <h5 class="card-title">Date</h5>
-                    <p class="card-text min">Min Temp:</p>
-                    <p class="card-text max">Max Temp:</p>
-                </div>
-            </div>
-        </div>
-        <div class="col text-center">
-            <div class="card h-100 five-day hidden">
-                <div class="card-body">
-                    <h5 class="card-title">Date</h5>
-                    <p class="card-text min">Min Temp:</p>
-                    <p class="card-text max">Max Temp:</p>
-                </div>
-            </div>
-        </div>
-        <div class="col text-center">
-            <div class="card h-100 five-day hidden">
-                <div class="card-body">
-                    <h5 class="card-title">Date</h5>
-                    <p class="card-text min">Min Temp:</p>
-                    <p class="card-text max">Max Temp:</p>
-                </div>
-            </div>
-        </div>
+    <!-- Five Day Forecast cards added here -->
+    <div class="row row-cols-1 row-cols-md-3 g-4 dayOne">
+
+        <!-- Search History -->
     </div>
     <div class="card text-center m-6 history">
         <div class="card-header">
