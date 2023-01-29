@@ -30,9 +30,8 @@ function formSubmitHandler(event) {
 
 // Renders the searched city name in the current weather card.
 
-function renderCityName() {
-
-    cityName.textContent = cityInput.value;
+function renderCityName(cityHistory) {
+    cityName.textContent = cityInput.value || cityHistory
 
 }
 
@@ -76,6 +75,7 @@ function historySearch() {
     console.log(this.dataset.value);
     getApi(this.dataset.value);
     fiveDay(this.dataset.value);
+    renderCityName(this.dataset.value);
 }
 
 // Function calls the current weather and displays it at the top of the page.
@@ -104,12 +104,8 @@ function getApi(location) {
             document.querySelector('.wind').innerHTML = "<strong>Wind: </strong>" + wind + " MPH";
 
 
-            const iconImage = document.createElement("img");
-            iconImage.src = "https://openweathermap.org/img/w/" + icon + ".png";
             var iconEl = document.querySelector(".icon");
-            iconEl.textContent = "";
-            iconEl.appendChild(iconImage);
-
+            iconEl.src = "https://openweathermap.org/img/w/" + icon + ".png";
 
 
         })
