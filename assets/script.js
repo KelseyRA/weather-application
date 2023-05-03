@@ -153,7 +153,7 @@ function fiveDay(location) {
                 iconOne.setAttribute("class", "card-text");
                 tempOne.setAttribute("class", "card-text");
 
-                dateEl.innerHTML = "<strong>Date: </strong>" + data.list[i].dt_txt;
+                dateEl.innerHTML = "<strong>Date: </strong>" + (data.list[i].dt_txt);
                 tempOne.innerHTML = "<strong>Temp: </strong>" + (Math.floor(data.list[i].main.temp)) + " °F";
                 humidityOne.innerHTML = "<strong>Humidity: </strong>" + data.list[i].main.humidity + " %";
                 windOne.innerHTML = "<strong>Wind: </strong>" + data.list[i].wind.speed + " MPH";
